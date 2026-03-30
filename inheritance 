@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// (i) Base class: Shape
+class Shape {
+protected:
+    string color; [span_0](start_span)// Protected allows derived classes to access it directly[span_0](end_span)
+
+public:
+    // Constructor to initialize color
+    [span_1](start_span)Shape(string c) : color(c) {}[span_1](end_span)
+
+    // Public member functions
+    void setColor(string c) {
+        [span_2](start_span)color = c;[span_2](end_span)
+    }
+
+    string getColor() {
+        [span_3](start_span)return color;[span_3](end_span)
+    }
+};
+
+// (ii) Derived class: Rectangle
+class Rectangle : public Shape {
+private:
+    [span_4](start_span)float length;[span_4](end_span)
+    [span_5](start_span)float width;[span_5](end_span)
+
+public:
+    // Constructor calling the base class constructor
+    [span_6](start_span)Rectangle(float l, float w, string c) : Shape(c), length(l), width(w) {}[span_6](end_span)
+
+    float area() {
+        [span_7](start_span)return length * width;[span_7](end_span)
+    }
+};
+
+// (iii) Derived class: Circle
+class Circle : public Shape {
+private:
+    [span_8](start_span)float radius;[span_8](end_span)
+
+public:
+    // Constructor calling the base class constructor
+    [span_9](start_span)Circle(float r, string c) : Shape(c), radius(r) {}[span_9](end_span)
+
+    float area() {
+        // Formula: PI * r^2
+        [span_10](start_span)return 3.14159 * radius * radius;[span_10](end_span)
+    }
+};
+
+// (iv) Main function
+int main() {
+    // Create Rectangle object
+    [span_11](start_span)Rectangle rect(10.0, 5.0, "Red");[span_11](end_span)
+
+    // Create Circle object
+    [span_12](start_span)Circle circ(7.0, "Blue");[span_12](end_span)
+
+    // Display Rectangle details
+    [span_13](start_span)cout << "Rectangle Color: " << rect.getColor() << endl;[span_13](end_span)
+    [span_14](start_span)cout << "Rectangle Area: " << rect.area() << endl;[span_14](end_span)
+
+    [span_15](start_span)cout << "---------------------------" << endl;[span_15](end_span)
+
+    // Display Circle details
+    [span_16](start_span)cout << "Circle Color: " << circ.getColor() << endl;[span_16](end_span)
+    [span_17](start_span)cout << "Circle Area: " << circ.area() << endl;[span_17](end_span)
+
+    return 0;
+}
