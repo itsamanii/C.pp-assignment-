@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Car {
+private:
+    string brand;
+    string model;
+    float price;
+    int mileage;
+
+public:
+    [span_0](start_span)// Constructor[span_0](end_span)
+    Car(string b, string m, float p, int mil) {
+        brand = b;
+        model = m;
+        price = p;
+        mileage = mil;
+    }
+
+    [span_1](start_span)// Display function[span_1](end_span)
+    int display() {
+        cout << "Brand: " << brand << endl;
+        cout << "Model: " << model << endl;
+        cout << "Price: " << price << endl;
+        cout << "Mileage: " << mileage << endl;
+        return 0;
+    }
+
+    [span_2](start_span)// Drive function[span_2](end_span)
+    int drive(int distance) {
+        mileage += distance;
+        cout << "Updated Mileage: " << mileage << endl;
+        return mileage;
+    }
+};
+
+int main() {
+    [span_3](start_span)// Creating the object[span_3](end_span)
+    Car myCar("Toyota", "Corolla", 20000, 5000);
+
+    myCar.display();
+    myCar.drive(150);
+    myCar.drive(300);
+
+    return 0;
+}
